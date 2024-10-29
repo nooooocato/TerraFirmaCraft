@@ -233,9 +233,11 @@ public class ExtendedProperties
     <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockEntityType<T> givenType)
     {
         assert blockEntityType != null;
-        if (givenType == blockEntityType.get())
-        {
-            return (BlockEntityTicker<T>) (level.isClientSide() ? clientTicker : serverTicker);
+        if (blockEntityType != null){            
+            if (givenType == blockEntityType.get())
+            {
+                return (BlockEntityTicker<T>) (level.isClientSide() ? clientTicker : serverTicker);
+            }
         }
         return null;
     }
